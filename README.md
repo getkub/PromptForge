@@ -2,6 +2,23 @@
 
 A modular Python interface for interacting with local language models with a structured prompt management system.
 
+## Prerequisites
+
+1. Install [Ollama](https://ollama.ai/download) on your system
+   ```bash
+   # For macOS using Homebrew
+   brew install ollama
+   ```
+2. Pull and serve a compatible model (e.g., Gemma 3:27b):
+   ```bash
+   # Pull the model
+   ollama pull gemma:3b-27b
+
+   # Run the model server
+   ollama run gemma:3b-27b
+   ```
+   Note: The model server must be running before using this interface.
+
 ## Quick Start
 
 1. Ensure Python 3 is installed on your system
