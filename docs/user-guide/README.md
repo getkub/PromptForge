@@ -3,6 +3,8 @@
 ## Table of Contents
 
 1. [Prompt System](prompt-system.md) - Understanding and using the prompt system
+2. [Web Interface](web-gui.md) - Using the web-based GUI
+3. [Troubleshooting](troubleshooting.md) - Solutions for common issues
 
 ## Overview
 
@@ -18,6 +20,15 @@ The Local LLM Interface provides a structured way to interact with local languag
 
 # Run a creative writing example
 ./run.sh config/prompts/creative/examples/story-sci-fi-space-01.yaml
+```
+
+### Launching the Web Interface
+
+```bash
+# Start the web interface
+./run_web.sh
+
+# Then open your browser to http://localhost:8000
 ```
 
 ### Basic Code Example
@@ -46,4 +57,6 @@ for chunk in client.chat(messages):
 ## Next Steps
 
 - Read [Prompt System](prompt-system.md) to understand how prompts work
-- Check the [Examples](../examples/README.md) section for practical use cases 
+- Try the [Web Interface](web-gui.md) for a user-friendly experience
+- Check the [Examples](../examples/README.md) section for practical use cases
+- Refer to [Troubleshooting](troubleshooting.md) if you encounter any issues 

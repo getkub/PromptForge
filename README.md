@@ -35,10 +35,22 @@ A modular Python interface for interacting with local language models with a str
    ./run.sh config/prompts/creative/examples/story-sci-fi-space-01.yaml
    ```
 
+4. Launch the web interface (Optional):
+   ```bash
+   ./run_web.sh
+   ```
+   This starts a web server at http://localhost:8000 where you can:
+   - Browse available example prompts
+   - Run examples with the LLM
+   - View formatted responses in a user-friendly interface
+
 ## Documentation
 
 - [User Guide](docs/user-guide/README.md) - Basic usage and prompt system overview
+- [Web Interface](docs/user-guide/web-gui.md) - Using the web-based GUI
 - [Examples](docs/examples/README.md) - Example use cases and code samples
+- [Working with Templates](docs/examples/working-with-templates.md) - Guide to creating and troubleshooting templates
+- [Troubleshooting](docs/user-guide/troubleshooting.md) - Solutions for common issues
 
 ## Project Structure
 

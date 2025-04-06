@@ -134,3 +134,57 @@ prompt_text = prompt_manager.format_prompt(prompt_id, **prompt_params)
    - Add relevant tags for searchability
    - Include diverse examples
    - Document use cases thoroughly 
+
+## Troubleshooting Templates
+
+### Common Template Issues
+
+1. **Missing Parameters**
+   
+   Error: `Missing parameter in template: <parameter_name>`
+   
+   This occurs when a template references a parameter that isn't provided. To fix:
+   
+   - Ensure all parameters referenced in your template string are included in the example file
+   - Check for typos in parameter names
+   - Ensure the parameter is defined properly in both the template and example
+
+2. **List Parameter Formatting**
+   
+   Arrays/lists in templates require special handling:
+   
+   - In template files, use `{parameter_name}` for list parameters - avoid direct operations like `{', '.join(parameter_name)}`
+   - In example files, format lists properly as YAML arrays:
+     ```yaml
+     themes:
+       - "theme one"
+       - "theme two"
+     ```
+   - The system automatically converts lists to comma-separated strings during formatting
+
+3. **Template Loading Issues**
+   
+   If templates aren't being found:
+   
+   - Ensure the `prompt_id` in the template matches the expected ID
+   - Verify file paths follow the correct domain/subdomain structure
+   - Check the file permissions are correct
+
+### Debugging Templates
+
+When developing new templates:
+
+1. **Print the formatted prompt** before passing it to the model:
+   ```python
+   formatted_prompt = prompt_manager.format_prompt(example["prompt_id"], **example["parameters"])
+   print(formatted_prompt)
+   ```
+
+2. **Log the parameters** being passed to format_prompt:
+   ```python
+   print(f"Parameters: {example['parameters']}")
+   ```
+
+3. **Test with minimal parameters** first, then add more complex ones
+
+4. **Validate YAML syntax** in both template and example files 
