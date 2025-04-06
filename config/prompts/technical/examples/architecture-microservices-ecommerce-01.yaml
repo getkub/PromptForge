@@ -1,0 +1,61 @@
+name: "microservices_architecture_documentation"
+description: "Example of microservices architecture documentation for an e-commerce platform"
+prompt_id: "technical.templates.documentation.architecture"
+parameters:
+  system_name: "EcoShop"
+  architecture_type: "Microservices"
+  overview: "EcoShop is a scalable e-commerce platform built using microservices architecture"
+  components:
+    - name: "API Gateway"
+      technology: "Kong"
+      responsibility: "Request routing, load balancing, authentication"
+      dependencies: []
+    
+    - name: "User Service"
+      technology: "Node.js, MongoDB"
+      responsibility: "User management, authentication, profiles"
+      dependencies: ["API Gateway"]
+    
+    - name: "Product Service"
+      technology: "Java, PostgreSQL"
+      responsibility: "Product catalog, inventory management"
+      dependencies: ["API Gateway"]
+    
+    - name: "Order Service"
+      technology: "Python, Redis, PostgreSQL"
+      responsibility: "Order processing, payment integration"
+      dependencies: ["API Gateway", "Product Service"]
+    
+    - name: "Notification Service"
+      technology: "Go, RabbitMQ"
+      responsibility: "Email, SMS, push notifications"
+      dependencies: ["User Service", "Order Service"]
+  
+  infrastructure:
+    cloud_provider: "AWS"
+    containerization: "Docker, Kubernetes"
+    ci_cd: "GitHub Actions, ArgoCD"
+    monitoring: "Prometheus, Grafana"
+    logging: "ELK Stack"
+  
+  data_flow:
+    - step: "User Authentication"
+      flow: "API Gateway → User Service → JWT Token"
+    
+    - step: "Product Browsing"
+      flow: "API Gateway → Product Service → Product Database"
+    
+    - step: "Order Processing"
+      flow: "API Gateway → Order Service → Payment Gateway → Notification Service"
+  
+  security:
+    - "JWT-based authentication"
+    - "HTTPS for all communications"
+    - "API key for external integrations"
+    - "Role-based access control"
+  
+  scalability:
+    - "Horizontal scaling of all services"
+    - "Auto-scaling based on CPU/memory usage"
+    - "Database sharding for high-volume services"
+    - "Caching layer for frequently accessed data" 

@@ -1,0 +1,24 @@
+name: "respiratory_symptoms_analysis"
+description: "Example of respiratory symptoms analysis for a 62-year-old male patient"
+prompt_id: "medical.templates.diagnostics.symptoms"
+parameters:
+  age: 62
+  gender: "male"
+  medical_history: "COPD, former smoker (quit 5 years ago), hypertension"
+  symptoms: 
+    - "wheezing"
+    - "cough with yellow sputum"
+    - "shortness of breath"
+    - "fatigue"
+  vitals:
+    blood_pressure: "135/85"
+    heart_rate: 92
+    temperature: 38.5
+    respiratory_rate: 22
+  duration: "5 days"
+  recent_changes: "Symptoms worsened after exposure to cold air"
+  current_medications: 
+    - "albuterol inhaler"
+    - "ipratropium inhaler"
+    - "prednisone"
+    - "amoxicillin" 

@@ -1,0 +1,112 @@
+name: "medical_symptom_analysis"
+description: "Analyzes patient symptoms and provides potential diagnostic considerations"
+version: "1.0"
+domain: "medical"
+subdomain: "diagnostics.symptoms"
+author: "Medical AI Team"
+
+template: |
+  Please analyze the following patient information and provide potential diagnostic considerations:
+
+  Patient Demographics:
+  - Age: {age}
+  - Gender: {gender}
+  - Medical History: {medical_history}
+
+  Current Symptoms:
+  {symptoms}
+
+  Vital Signs:
+  {vitals}
+
+  Additional Information:
+  - Duration of Symptoms: {duration}
+  - Recent Changes: {recent_changes}
+  - Medications: {current_medications}
+
+  Please provide:
+  1. Primary diagnostic considerations
+  2. Recommended immediate actions
+  3. Suggested tests or examinations
+  4. Risk factors to consider
+  5. Red flags or warning signs to monitor
+
+parameters:
+  age:
+    type: integer
+    description: "Patient's age in years"
+    required: true
+  
+  gender:
+    type: string
+    description: "Patient's gender"
+    required: true
+  
+  medical_history:
+    type: string
+    description: "Relevant medical history"
+    default: "No significant medical history"
+    required: false
+  
+  symptoms:
+    type: array
+    description: "List of current symptoms"
+    required: true
+  
+  vitals:
+    type: object
+    description: "Current vital signs"
+    properties:
+      blood_pressure:
+        type: string
+      heart_rate:
+        type: integer
+      temperature:
+        type: float
+      respiratory_rate:
+        type: integer
+    required: true
+  
+  duration:
+    type: string
+    description: "Duration of current symptoms"
+    required: true
+  
+  recent_changes:
+    type: string
+    description: "Recent changes in condition"
+    default: "None reported"
+    required: false
+  
+  current_medications:
+    type: array
+    description: "List of current medications"
+    default: []
+    required: false
+
+metadata:
+  tags:
+    - medical
+    - diagnostics
+    - symptoms
+    - patient care
+  
+  use_cases:
+    - Initial patient assessment
+    - Emergency triage
+    - Clinical decision support
+  
+  examples:
+    - input:
+        age: 45
+        gender: "female"
+        medical_history: "Type 2 diabetes, controlled hypertension"
+        symptoms: ["chest pain", "shortness of breath", "fatigue"]
+        vitals:
+          blood_pressure: "140/90"
+          heart_rate: 88
+          temperature: 37.2
+          respiratory_rate: 18
+        duration: "2 days"
+        current_medications: ["metformin", "lisinopril"]
+      expected_output: "Analysis of potential cardiac conditions..." 

@@ -1,0 +1,65 @@
+version: "1.0"
+prompt_schema:
+  required:
+    - name
+    - description
+    - template
+    - parameters
+  properties:
+    name:
+      type: string
+      description: "Unique identifier for the prompt"
+    description:
+      type: string
+      description: "Detailed description of what the prompt does"
+    version:
+      type: string
+      description: "Version of the prompt template"
+      default: "1.0"
+    domain:
+      type: string
+      description: "Primary domain this prompt belongs to"
+    subdomain:
+      type: string
+      description: "Specific subdomain or use case"
+    author:
+      type: string
+      description: "Author or team responsible for the prompt"
+    template:
+      type: string
+      description: "The actual prompt template with placeholders"
+    parameters:
+      type: object
+      description: "Parameters that can be used in the template"
+      properties:
+        type:
+          type: string
+          enum: [string, integer, float, boolean, array]
+        description:
+          type: string
+        default:
+          type: any
+        required:
+          type: boolean
+          default: false
+    metadata:
+      type: object
+      description: "Additional metadata for the prompt"
+      properties:
+        tags:
+          type: array
+          items:
+            type: string
+        use_cases:
+          type: array
+          items:
+            type: string
+        examples:
+          type: array
+          items:
+            type: object
+            properties:
+              input:
+                type: object
+              expected_output:
+                type: string 

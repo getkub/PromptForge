@@ -1,0 +1,63 @@
+name: "api_documentation_generation"
+description: "Example of API documentation generation for a RESTful service"
+prompt_id: "technical.templates.documentation.api"
+parameters:
+  api_name: "UserManagementAPI"
+  version: "v1.0"
+  framework: "Node.js with Express"
+  base_url: "https://api.example.com/v1"
+  authentication: "JWT-based authentication"
+  endpoints:
+    - path: "/users"
+      method: "GET"
+      description: "Retrieve a list of users"
+      parameters:
+        - name: "page"
+          type: "integer"
+          required: false
+          description: "Page number for pagination"
+        - name: "limit"
+          type: "integer"
+          required: false
+          description: "Number of items per page"
+      responses:
+        - status: 200
+          description: "Successful response"
+          example: |
+            {
+              "users": [
+                {
+                  "id": "123",
+                  "username": "johndoe",
+                  "email": "john@example.com"
+                }
+              ],
+              "total": 100,
+              "page": 1,
+              "limit": 10
+            }
+    - path: "/users/{id}"
+      method: "GET"
+      description: "Retrieve a specific user by ID"
+      parameters:
+        - name: "id"
+          type: "string"
+          required: true
+          description: "User ID"
+      responses:
+        - status: 200
+          description: "Successful response"
+        - status: 404
+          description: "User not found"
+  error_codes:
+    - code: 400
+      description: "Bad Request"
+    - code: 401
+      description: "Unauthorized"
+    - code: 403
+      description: "Forbidden"
+    - code: 404
+      description: "Not Found"
+    - code: 500
+      description: "Internal Server Error"
+  rate_limits: "100 requests per minute per API key" 

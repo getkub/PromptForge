@@ -1,0 +1,14 @@
+name: "space_exploration_story"
+description: "Example of a space exploration story with quantum archaeology theme"
+prompt_id: "creative.templates.story.scifi"
+parameters:
+  genre_focus: "space exploration"
+  main_character: "a quantum archaeologist"
+  setting: "ancient alien ruins on a distant planet"
+  time_period: "year 2250"
+  word_count: 400
+  context: "Humanity has discovered faster-than-light travel"
+  themes: 
+    - "discovery"
+    - "ancient mysteries"
+    - "human advancement" 

@@ -1,0 +1,76 @@
+name: "financial_performance_analysis"
+description: "Example of financial performance analysis for a retail company"
+prompt_id: "business.templates.finance.analysis"
+parameters:
+  company_name: "RetailGiant"
+  industry: "Retail - Consumer Goods"
+  fiscal_year: "2023"
+  reporting_period: "Q4"
+  
+  financial_metrics:
+    revenue:
+      current: "$1.2B"
+      previous: "$1.1B"
+      growth: "9.1%"
+    
+    gross_profit:
+      current: "$480M"
+      previous: "$440M"
+      margin: "40%"
+    
+    operating_expenses:
+      current: "$320M"
+      previous: "$300M"
+      change: "6.7%"
+    
+    net_income:
+      current: "$120M"
+      previous: "$100M"
+      growth: "20%"
+    
+    ebitda:
+      current: "$180M"
+      previous: "$160M"
+      margin: "15%"
+  
+  key_performance_indicators:
+    same_store_sales: "5.2%"
+    average_transaction_value: "$85"
+    customer_traffic: "3.8%"
+    inventory_turnover: "4.2x"
+    accounts_receivable_days: "45"
+    accounts_payable_days: "60"
+  
+  segment_performance:
+    - segment: "Electronics"
+      revenue: "$450M"
+      growth: "12%"
+      margin: "35%"
+    
+    - segment: "Apparel"
+      revenue: "$380M"
+      growth: "7%"
+      margin: "42%"
+    
+    - segment: "Home Goods"
+      revenue: "$370M"
+      growth: "8%"
+      margin: "38%"
+  
+  market_conditions:
+    - "Inflation rate: 3.2%"
+    - "Consumer confidence index: 105.2"
+    - "Retail sales growth: 4.5%"
+    - "Unemployment rate: 3.8%"
+  
+  strategic_initiatives:
+    - "Expansion of e-commerce platform"
+    - "Implementation of AI-driven inventory management"
+    - "Opening of 15 new stores in underserved markets"
+    - "Launch of private label products"
+  
+  risks_and_challenges:
+    - "Increasing competition from online retailers"
+    - "Supply chain disruptions"
+    - "Rising labor costs"
+    - "Changing consumer preferences" 

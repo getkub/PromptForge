@@ -1,0 +1,15 @@
+name: "fantasy_story_generation"
+description: "Example of a fantasy story with magical elements and a quest theme"
+prompt_id: "creative.templates.story.fantasy"
+parameters:
+  genre_focus: "high fantasy"
+  main_character: "a young elven mage apprentice"
+  setting: "an ancient magical forest with hidden portals"
+  time_period: "age of magic"
+  word_count: 500
+  context: "A magical artifact has been stolen from the elven council"
+  themes: 
+    - "coming of age"
+    - "friendship"
+    - "responsibility"
+    - "magical discovery" 

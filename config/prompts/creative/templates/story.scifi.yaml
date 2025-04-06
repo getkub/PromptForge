@@ -1,0 +1,81 @@
+name: "sci_fi_story_generator"
+description: "Generates creative science fiction stories with customizable parameters"
+version: "1.0"
+domain: "creative"
+subdomain: "fiction.scifi"
+author: "AI Team"
+
+template: |
+  Please tell me a science fiction story with the following parameters:
+  Genre focus: {genre_focus}
+  Main character: {main_character}
+  Setting: {setting}
+  Time period: {time_period}
+  Story length: approximately {word_count} words
+  Additional context: {context}
+  Themes to explore: {themes}
+
+parameters:
+  genre_focus:
+    type: string
+    description: "Specific focus within science fiction (e.g., space opera, cyberpunk, hard sci-fi)"
+    default: "space exploration"
+    required: true
+  
+  main_character:
+    type: string
+    description: "Description of the main character"
+    default: "a space explorer"
+    required: true
+  
+  setting:
+    type: string
+    description: "Primary location or environment of the story"
+    default: "deep space"
+    required: true
+  
+  time_period:
+    type: string
+    description: "When the story takes place"
+    default: "year 2150"
+    required: true
+  
+  word_count:
+    type: integer
+    description: "Approximate number of words for the story"
+    default: 300
+    required: true
+  
+  context:
+    type: string
+    description: "Additional background information or context"
+    default: ""
+    required: false
+  
+  themes:
+    type: array
+    description: "Key themes to explore in the story"
+    default: ["exploration", "discovery", "human nature"]
+    required: false
+
+metadata:
+  tags:
+    - science fiction
+    - creative writing
+    - storytelling
+    - space
+  
+  use_cases:
+    - Entertainment content generation
+    - Creative writing prompts
+    - Story ideation
+  
+  examples:
+    - input:
+        genre_focus: "cyberpunk"
+        main_character: "a rogue AI researcher"
+        setting: "neo-tokyo"
+        time_period: "year 2099"
+        word_count: 400
+        themes: ["artificial intelligence", "ethics", "humanity"]
+      expected_output: "A story exploring AI ethics in a cyberpunk setting..." 

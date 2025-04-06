@@ -1,0 +1,35 @@
+name: "marketing_campaign_analysis"
+description: "Example of a marketing campaign analysis for a tech startup"
+prompt_id: "business.templates.marketing.campaign"
+parameters:
+  company_name: "TechInnovate"
+  industry: "SaaS - Project Management Software"
+  target_audience: 
+    - "small to medium-sized businesses"
+    - "remote teams"
+    - "project managers"
+  campaign_objectives:
+    - "increase brand awareness"
+    - "generate qualified leads"
+    - "improve conversion rate"
+  channels:
+    - "social media"
+    - "content marketing"
+    - "email marketing"
+    - "webinars"
+  budget: "$50,000"
+  timeline: "3 months"
+  kpis:
+    - "website traffic"
+    - "lead generation"
+    - "conversion rate"
+    - "customer acquisition cost"
+  competitors:
+    - "Asana"
+    - "Trello"
+    - "Monday.com"
+  unique_selling_points:
+    - "AI-powered project insights"
+    - "seamless integration with existing tools"
+    - "intuitive user interface"
+    - "affordable pricing for small teams" 

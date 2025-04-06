@@ -1,0 +1,21 @@
+name: "cardiac_symptoms_analysis"
+description: "Example of cardiac symptoms analysis for a 45-year-old female patient"
+prompt_id: "medical.templates.diagnostics.symptoms"
+parameters:
+  age: 45
+  gender: "female"
+  medical_history: "Type 2 diabetes, controlled hypertension"
+  symptoms: 
+    - "chest pain"
+    - "shortness of breath"
+    - "fatigue"
+  vitals:
+    blood_pressure: "140/90"
+    heart_rate: 88
+    temperature: 37.2
+    respiratory_rate: 18
+  duration: "2 days"
+  recent_changes: "Symptoms started after physical exertion"
+  current_medications: 
+    - "metformin"
+    - "lisinopril" 
