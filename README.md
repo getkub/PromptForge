@@ -37,9 +37,7 @@ A modular Python interface for interacting with local language models with a str
 
 ## Documentation
 
-- [Getting Started](docs/getting-started/installation.md) - Installation and basic setup
-- [User Guide](docs/user-guide/README.md) - How to use the system
-- [API Reference](docs/api-reference/README.md) - Detailed API documentation
+- [User Guide](docs/user-guide/README.md) - Basic usage and prompt system overview
 - [Examples](docs/examples/README.md) - Example use cases and code samples
 
 ## Project Structure

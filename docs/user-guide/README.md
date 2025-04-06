@@ -2,10 +2,7 @@
 
 ## Table of Contents
 
-1. [Basic Usage](basic-usage.md)
-2. [Prompt System](prompt-system.md)
-3. [Configuration](configuration.md)
-4. [Advanced Usage](advanced-usage.md)
+1. [Prompt System](prompt-system.md) - Understanding and using the prompt system
 
 ## Overview
 
@@ -13,10 +10,14 @@ The Local LLM Interface provides a structured way to interact with local languag
 
 ## Quick Reference
 
-### Running the Example
+### Running Examples
 
 ```bash
-./run.sh
+# Run a medical diagnostics example
+./run.sh config/prompts/medical/examples/symptoms-cardiac-chest-pain-01.yaml
+
+# Run a creative writing example
+./run.sh config/prompts/creative/examples/story-sci-fi-space-01.yaml
 ```
 
 ### Basic Code Example
@@ -44,7 +45,5 @@ for chunk in client.chat(messages):
 
 ## Next Steps
 
-- Read [Basic Usage](basic-usage.md) to get started
-- Explore the [Prompt System](prompt-system.md) to understand how prompts work
-- Check [Configuration](configuration.md) for customization options
-- See [Advanced Usage](advanced-usage.md) for more complex scenarios 
+- Read [Prompt System](prompt-system.md) to understand how prompts work
+- Check the [Examples](../examples/README.md) section for practical use cases 

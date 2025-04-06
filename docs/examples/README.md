@@ -1,12 +1,5 @@
 # Examples
 
-## Table of Contents
-
-1. [Basic Examples](basic.md) - Simple usage examples
-2. [Creative Writing](creative-writing.md) - Story generation examples
-3. [Medical Diagnostics](medical-diagnostics.md) - Medical analysis examples
-4. [Advanced Usage](advanced.md) - Complex scenarios
-
 ## Overview
 
 This section provides practical examples of using the Local LLM Interface for various use cases. Each example is stored as a YAML file in the appropriate domain directory.
@@ -86,7 +79,5 @@ parameters:
 
 ## Next Steps
 
-- Check [Basic Examples](basic.md) for more simple use cases
-- Explore [Creative Writing](creative-writing.md) for story generation
-- See [Medical Diagnostics](medical-diagnostics.md) for medical analysis
-- Review [Advanced Usage](advanced.md) for complex scenarios 
+- Check the [User Guide](../user-guide/README.md) for basic usage information
+- Read the [Prompt System](../user-guide/prompt-system.md) documentation to understand how prompts work 
