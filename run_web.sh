@@ -6,13 +6,10 @@ if [ -d "venv" ]; then
 fi
 
 # Install required packages if not already installed
-pip install fastapi uvicorn jinja2 pyyaml
+pip install fastapi uvicorn jinja2 pyyaml requests
 
 # Install the package in development mode
 pip install -e .
 
-# Add the src directory to the Python path
-export PYTHONPATH=$PYTHONPATH:$(pwd)/src
-
 # Run the FastAPI application
-uvicorn llm_interface.web_app:app --reload --host 0.0.0.0 --port 8080 
+python -m llm_interface.web_app 

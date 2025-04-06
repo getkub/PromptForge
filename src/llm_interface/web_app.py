@@ -1,3 +1,6 @@
+"""
+Main FastAPI application.
+"""
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -7,16 +10,21 @@ import yaml
 from pathlib import Path
 from .model_client import ModelClient
 from .prompt_manager import PromptManager
+from .api import routes
+import uvicorn
 
 app = FastAPI(title="Local LLM Interface")
 
 # Mount templates and static files
-templates = Jinja2Templates(directory="src/llm_interface/templates")
-app.mount("/static", StaticFiles(directory="src/llm_interface/static"), name="static")
+templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
+app.mount("/static", StaticFiles(directory=str(Path(__file__).parent / "static")), name="static")
 
 # Initialize clients
 model_client = ModelClient()
 prompt_manager = PromptManager()
+
+# Include API routes
+app.include_router(routes.router, prefix="/api")
 
 def get_example_files():
     """Get all example YAML files from the config/prompts directory."""
@@ -77,4 +85,11 @@ async def run_example(request: Request):
             "response": response
         })
     except Exception as e:
-        return JSONResponse({"error": str(e)}, status_code=500) 
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+def main():
+    """Entry point for the application."""
+    uvicorn.run(app, host="0.0.0.0", port=8080)
+
+if __name__ == "__main__":
+    main() 
