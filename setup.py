@@ -10,6 +10,12 @@ setup(
         "uvicorn",
         "jinja2",
         "pyyaml",
+        "requests",
     ],
     python_requires=">=3.8",
+    entry_points={
+        "console_scripts": [
+            "llm-interface=llm_interface.web_app:main",
+        ],
+    },
 ) 

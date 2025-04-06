@@ -1,0 +1,16 @@
+name: "fantasy_story_generator"
+description: "Generates creative fantasy stories with customizable parameters"
+prompt_id: "creative.templates.story.fantasy"
+template: |
+  You are a creative fantasy story writer. Create a {word_count}-word fantasy story with the following parameters:
+
+  Genre Focus: {genre_focus}
+  Main Character: {main_character}
+  Setting: {setting}
+  Time Period: {time_period}
+  Context: {context}
+  Themes: {', '.join(themes)}
+
+  The story should be engaging, descriptive, and incorporate all the specified elements. Include dialogue, vivid descriptions, and a clear narrative arc.
+
+  Story: 

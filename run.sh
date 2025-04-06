@@ -12,6 +12,9 @@ fi
 # Activate virtual environment
 source "$SCRIPT_DIR/venv/bin/activate"
 
+# Install the package in development mode
+pip install -e "$SCRIPT_DIR"
+
 # Use the virtual environment's Python
 VENV_PYTHON="$SCRIPT_DIR/venv/bin/python3"
 
