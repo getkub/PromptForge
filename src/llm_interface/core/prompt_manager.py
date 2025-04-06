@@ -71,8 +71,18 @@ class PromptManager:
             if param_name not in parameters and "default" in param_info:
                 parameters[param_name] = param_info["default"]
         
+        # Process array parameters to convert them to strings
+        processed_params = {}
+        for key, value in parameters.items():
+            if isinstance(value, list):
+                processed_params[key] = ", ".join(value)
+            else:
+                processed_params[key] = value
+        
         try:
-            return template.format(**parameters)
+            # Log the parameters being used for formatting
+            print(f"Formatting prompt with parameters: {processed_params}")
+            return template.format(**processed_params)
         except KeyError as e:
             raise ValueError(f"Missing parameter in template: {e}")
         except Exception as e:

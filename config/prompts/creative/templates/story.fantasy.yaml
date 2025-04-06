@@ -9,7 +9,7 @@ template: |
   Setting: {setting}
   Time Period: {time_period}
   Context: {context}
-  Themes: {', '.join(themes)}
+  Themes: {themes}
 
   The story should be engaging, descriptive, and incorporate all the specified elements. Include dialogue, vivid descriptions, and a clear narrative arc.
 
