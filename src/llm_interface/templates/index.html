@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local LLM Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .loading-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">Local LLM Interface</h1>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Select an Example</h2>
+            <select id="exampleSelect" class="w-full p-2 border rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option value="">Choose an example...</option>
+                {% for example in examples %}
+                <option value="{{ example.path }}" data-description="{{ example.description }}">
+                    {{ example.name }} ({{ example.domain }})
+                </option>
+                {% endfor %}
+            </select>
+            
+            <div id="exampleDescription" class="text-gray-600 mb-4 italic"></div>
+            
+            <button onclick="runExample()" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
+                Run Example
+            </button>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h2 class="text-xl font-semibold mb-4 text-gray-700">Output</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Prompt:</h3>
+                    <pre id="promptOutput" class="bg-gray-50 p-4 rounded-lg whitespace-pre-wrap"></pre>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Response:</h3>
+                    <pre id="responseOutput" class="bg-gray-50 p-4 rounded-lg whitespace-pre-wrap"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="loading" class="loading">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p class="text-xl">Processing...</p>
+        </div>
+    </div>
+
+    <script>
+        const exampleSelect = document.getElementById('exampleSelect');
+        const exampleDescription = document.getElementById('exampleDescription');
+        const promptOutput = document.getElementById('promptOutput');
+        const responseOutput = document.getElementById('responseOutput');
+        const loading = document.getElementById('loading');
+
+        exampleSelect.addEventListener('change', function() {
+            const selectedOption = this.options[this.selectedIndex];
+            exampleDescription.textContent = selectedOption.dataset.description || 'No description available.';
+        });
+
+        async function runExample() {
+            const filePath = exampleSelect.value;
+            if (!filePath) {
+                alert('Please select an example first.');
+                return;
+            }
+
+            loading.style.display = 'block';
+            promptOutput.textContent = '';
+            responseOutput.textContent = '';
+
+            try {
+                const response = await fetch('/run-example', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ file_path: filePath }),
+                });
+
+                const data = await response.json();
+                
+                if (response.ok) {
+                    promptOutput.textContent = data.prompt;
+                    responseOutput.textContent = data.response;
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('Error running example: ' + error.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 
