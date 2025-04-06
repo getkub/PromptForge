@@ -1,0 +1,100 @@
+name: "employment_contract_analysis"
+description: "Analyzes employment contracts and provides legal insights"
+domain: "legal.contracts.employment"
+template: |
+  Please analyze the following employment contract details and provide legal insights:
+
+  Contract Type: {contract_type}
+  Jurisdiction: {jurisdiction}
+
+  Parties:
+  - Employer: {parties[employer]}
+  - Employee: {parties[employee]}
+
+  Position: {position}
+
+  Key Terms:
+  - Salary: {key_terms[salary]}
+  - Start Date: {key_terms[start_date]}
+  - Employment Type: {key_terms[employment_type]}
+  - Notice Period: {key_terms[notice_period]}
+
+  Contract Clauses:
+  {clauses}
+
+  Special Conditions:
+  {special_conditions}
+
+  Benefits:
+  {benefits}
+
+  Compliance Requirements:
+  {compliance_requirements}
+
+  Please provide:
+  1. Analysis of key terms and conditions
+  2. Potential legal issues or concerns
+  3. Compliance with jurisdiction requirements
+  4. Recommendations for improvements
+  5. Overall assessment of the contract's fairness and completeness
+parameters:
+  contract_type:
+    type: "string"
+    description: "Type of employment contract"
+    required: true
+  jurisdiction:
+    type: "string"
+    description: "Legal jurisdiction for the contract"
+    required: true
+  parties:
+    type: "object"
+    description: "Parties involved in the contract"
+    properties:
+      employer:
+        type: "string"
+        description: "Name of the employer"
+      employee:
+        type: "string"
+        description: "Name of the employee"
+    required: ["employer", "employee"]
+  position:
+    type: "string"
+    description: "Job position or title"
+    required: true
+  key_terms:
+    type: "object"
+    description: "Key terms of employment"
+    properties:
+      salary:
+        type: "string"
+        description: "Salary amount"
+      start_date:
+        type: "string"
+        description: "Employment start date"
+      employment_type:
+        type: "string"
+        description: "Type of employment (full-time, part-time, etc.)"
+      notice_period:
+        type: "string"
+        description: "Required notice period"
+    required: ["salary", "start_date", "employment_type"]
+  clauses:
+    type: "array"
+    description: "List of contract clauses"
+    items:
+      type: "string"
+  special_conditions:
+    type: "array"
+    description: "Special conditions or arrangements"
+    items:
+      type: "string"
+  benefits:
+    type: "array"
+    description: "Employment benefits"
+    items:
+      type: "string"
+  compliance_requirements:
+    type: "array"
+    description: "Legal compliance requirements"
+    items:
+      type: "string" 

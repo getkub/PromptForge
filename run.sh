@@ -12,8 +12,11 @@ fi
 # Activate virtual environment
 source "$SCRIPT_DIR/venv/bin/activate"
 
+# Use the virtual environment's Python
+VENV_PYTHON="$SCRIPT_DIR/venv/bin/python3"
+
 # Run the Python script with all arguments passed to this script
-python "$SCRIPT_DIR/src/example.py" "$@"
+"$VENV_PYTHON" "$SCRIPT_DIR/src/example.py" "$@"
 
 # Deactivate virtual environment when done
 deactivate 

@@ -10,21 +10,31 @@ fi
 PYTHON_VERSION=$(python3 --version 2>&1 | awk '{print $2}')
 echo "Using Python version: $PYTHON_VERSION"
 
-# Create virtual environment if it doesn't exist
-if [ ! -d "venv" ]; then
-    echo "Creating virtual environment..."
-    python3 -m venv venv
+# Remove existing virtual environment if it exists
+if [ -d "venv" ]; then
+    echo "Removing existing virtual environment..."
+    rm -rf venv
 fi
 
+# Create new virtual environment
+echo "Creating virtual environment..."
+python3 -m venv venv
+
 # Activate virtual environment
+echo "Activating virtual environment..."
 source venv/bin/activate
 
+# Ensure we're using the virtual environment's Python
+VENV_PYTHON="$(pwd)/venv/bin/python3"
+VENV_PIP="$(pwd)/venv/bin/pip3"
+
 # Upgrade pip
-python -m pip install --upgrade pip
+echo "Upgrading pip..."
+"$VENV_PYTHON" -m pip install --upgrade pip
 
 # Install requirements
 echo "Installing requirements..."
-pip install -r requirements.txt
+"$VENV_PIP" install -r requirements.txt
 
 # Create symlinks for python/python3 if they don't exist
 if [ ! -L "venv/bin/python" ]; then

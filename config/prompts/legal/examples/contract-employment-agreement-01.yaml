@@ -1,0 +1,33 @@
+name: "employment_contract_analysis"
+description: "Example of employment contract analysis for a software engineering position"
+prompt_id: "legal.templates.contracts.employment"
+parameters:
+  contract_type: "employment"
+  jurisdiction: "California"
+  parties:
+    employer: "TechCorp Inc."
+    employee: "John Smith"
+  position: "Senior Software Engineer"
+  key_terms:
+    salary: "$150,000"
+    start_date: "2024-05-01"
+    employment_type: "full-time"
+    notice_period: "2 weeks"
+  clauses:
+    - "non-compete"
+    - "intellectual property"
+    - "confidentiality"
+    - "termination"
+  special_conditions:
+    - "Remote work allowed up to 3 days per week"
+    - "Stock options vesting over 4 years"
+    - "Annual performance review"
+  benefits:
+    - "Health insurance"
+    - "401(k) matching"
+    - "Paid time off"
+    - "Professional development allowance"
+  compliance_requirements:
+    - "California Labor Code"
+    - "Fair Employment and Housing Act"
+    - "Equal Pay Act" 
