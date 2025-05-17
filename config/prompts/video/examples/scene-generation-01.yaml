@@ -1,0 +1,12 @@
+template: video.templates.scene.generation
+parameters:
+  scene_description: "A futuristic cityscape at sunset, with flying cars and neon lights reflecting off glass buildings"
+  duration: 5
+  resolution: [512, 512]
+  style: "cinematic"
+  mood: "mysterious"
+  camera_movement: "slow pan"
+  lighting: "dramatic"
+  color_palette: ["deep blues", "neon purples", "warm oranges"]
+  special_effects: ["light trails", "atmospheric fog"]
+  audio_description: "ambient electronic music with distant city sounds" 

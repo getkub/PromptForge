@@ -19,6 +19,12 @@ A modular Python interface for interacting with local language models with a str
    ```
    Note: The model server must be running before using this interface.
 
+3. (Optional) For video generation capabilities:
+   ```bash
+   # Clone LTX-Video repository
+   git clone https://github.com/Lightricks/LTX-Video ../Lightricks/LTX-Video
+   ```
+
 ## Quick Start
 
 1. Ensure Python 3 is installed on your system
@@ -33,6 +39,9 @@ A modular Python interface for interacting with local language models with a str
 
    # Run a creative writing example
    ./run.sh config/prompts/creative/examples/story-sci-fi-space-01.yaml
+
+   # Generate a video (requires LTX-Video setup)
+   ./run.sh config/prompts/video/examples/scene-generation-01.yaml
    ```
 
 4. Launch the web interface (Optional):
@@ -43,6 +52,7 @@ A modular Python interface for interacting with local language models with a str
    - Browse available example prompts
    - Run examples with the LLM
    - View formatted responses in a user-friendly interface
+   - Generate videos (if LTX-Video is set up)
 
 ## Documentation
 
@@ -51,19 +61,22 @@ A modular Python interface for interacting with local language models with a str
 - [Examples](docs/examples/README.md) - Example use cases and code samples
 - [Working with Templates](docs/examples/working-with-templates.md) - Guide to creating and troubleshooting templates
 - [Troubleshooting](docs/user-guide/troubleshooting.md) - Solutions for common issues
+- [LTX-Video Integration](docs/ltx-video/README.md) - Guide to video generation capabilities
 
 ## Project Structure
 
 - `src/llm_interface/`: Core Python modules
 - `config/`: Configuration files and prompts
   - `prompts/`: Prompt templates and examples
-    - `medical/examples/`: Medical diagnostics examples (e.g., `symptoms-cardiac-chest-pain-01.yaml`)
-    - `creative/examples/`: Creative writing examples (e.g., `story-sci-fi-space-01.yaml`)
-    - `business/examples/`: Business analysis examples (e.g., `finance-retail-performance-01.yaml`)
-    - `technical/examples/`: Technical documentation examples (e.g., `api-rest-documentation-01.yaml`)
+    - `medical/examples/`: Medical diagnostics examples
+    - `creative/examples/`: Creative writing examples
+    - `business/examples/`: Business analysis examples
+    - `technical/examples/`: Technical documentation examples
+    - `video/examples/`: Video generation examples (requires LTX-Video)
 - `docs/`: Detailed documentation
+  - `ltx-video/`: Documentation for video generation features
 - `tests/`: Test files
-- `output/`: Directory where generated responses are saved
+- `output/`: Directory where generated responses and videos are saved
 
 ## License
 
